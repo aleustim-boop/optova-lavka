@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aleustim-boop.github.io/optova-lavka/sitemap.xml
