@@ -629,7 +629,15 @@ table { border-collapse: collapse; }
 .ftr__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 28px; padding-top: 14px; border-top: 1px solid #3b322b; font: 400 12px/1.5 var(--mono); color: #a89a84; }
 
 /* ---------- адаптив ---------- */
+@media (max-width: 1260px) {
+  /* 11.11.2026: подпись «Нова пошта · самовивіз…» в ряду меню не помещалась на ширинах до ~1260 и уезжала за экран (горизонтальный скролл до 272px) — прячем */
+  .hdr__note { display: none; }
+}
+
 @media (max-width: 1100px) {
+  /* 11.11.2026: верхняя полоска (город + часы + опт) шире экрана на 901–1100 — убираем часы (они есть у телефона и в контактах) */
+  .topline__item--hours { display: none; }
+
   :root { --side: 240px; }
   .grid, .grid--home, .mgrid, .favs__grid, .recent__row { grid-template-columns: repeat(3, 1fr); }
   .tiles { grid-template-columns: repeat(3, 1fr); }
@@ -642,6 +650,12 @@ table { border-collapse: collapse; }
   .optband__btns { flex-direction: row; flex-wrap: wrap; }
   .ftr__grid { grid-template-columns: 1fr 1fr; }
   .catmenu__sub { width: 420px; }
+}
+
+@media (min-width: 901px) and (max-width: 960px) {
+  /* 11.11.2026: на 901–960 меню упиралось в край экрана вплотную (на 1px) — чуть компактнее */
+  .hdr__bar-in { gap: 12px; }
+  .nav > a { padding: 8px 8px; }
 }
 
 @media (max-width: 900px) {
@@ -785,6 +799,11 @@ table { border-collapse: collapse; }
   .order-modal__row { grid-template-columns: 1fr; }
   .optband__tier { min-width: 0; flex: 1; }
   .optband__btns .btn { flex: 1; }
+}
+
+@media (max-width: 480px) {
+  /* 11.11.2026: на 360 px строка «Кременчук · склад гофротари · відправка по Україні» (nowrap) была шире экрана — разрешаем перенос */
+  .topline__item { white-space: normal; line-height: 1.3; padding: 3px 0; }
 }
 
 @media (max-width: 420px) {
